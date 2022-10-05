@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Battleship;
+using System;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -6,7 +7,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var board = new Board(10);
+
+            board.PrintToTableVisible(board.matO);
+            Console.WriteLine("*****************************");
+            board.PrintToTableVisible(board.matV);
         }
     }
 }
