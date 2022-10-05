@@ -1,0 +1,15 @@
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\bin\Debug\net6.0\Battleship.exe
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\bin\Debug\net6.0\Battleship.deps.json
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\bin\Debug\net6.0\Battleship.runtimeconfig.json
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\bin\Debug\net6.0\Battleship.dll
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\bin\Debug\net6.0\Battleship.pdb
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.csproj.AssemblyReference.cache
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.GeneratedMSBuildEditorConfig.editorconfig
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.AssemblyInfoInputs.cache
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.AssemblyInfo.cs
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.csproj.CoreCompileInputs.cache
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.dll
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\refint\Battleship.dll
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.pdb
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\Battleship.genruntimeconfig.cache
+D:\NiceCXone\Exercise Training Nice\Battleship\Battleship\obj\Debug\net6.0\ref\Battleship.dll
