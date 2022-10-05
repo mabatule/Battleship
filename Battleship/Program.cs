@@ -1,5 +1,7 @@
 ﻿using Battleship;
 using System;
+using System.Drawing;
+using System.Linq;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -7,11 +9,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            var board = new Board(10);
-
-            board.PrintToTableVisible(board.matO);
+            Boats Boats = new Boats();
+            Board board = new Board(10, Boats);
+            var aux=board.directionOptions(4,3,5);
+            foreach (var item in aux)
+            {
+                Console.WriteLine(item);
+            }
+            
             Console.WriteLine("*****************************");
-            board.PrintToTableVisible(board.matV);
+            //board.PrintToTableVisible(board.matV);
         }
     }
 }
