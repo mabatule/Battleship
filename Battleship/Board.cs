@@ -11,21 +11,17 @@ namespace Battleship
         public string[,] matV { get; set; }
         public string[,] matO { get; set; }
         public int Size { get; set; }
-        public Board(int Size,Boats boats)
+        public Boats boats { get; set; }
+        public Board(int Size)
         {
+            boats = new Boats();
             this.Size = Size;
             matV = new string[Size, Size];
-            string formatEmpty = Convert.ToChar(166).ToString();
-            initializeMat(matV, formatEmpty);
+            //string formatEmpty = Convert.ToChar(166).ToString();
+            initializeMat(matV, "▬");
             matO = new string[Size, Size];
             initializeMat(matO, "0");
-            
-            
-            /*matO[9,5]= "A";
-            matO[9,6]= "A";
-            matO[9,7]= "A";
-            matO[9,8]= "A";
-            matO[9,9]= "A";*/
+
         }
 
         public void initializeMat(string[,] mat,string car)
@@ -38,7 +34,29 @@ namespace Battleship
                 }
             }
         }
-        public  void printToTableVisible(string[,] mat)
+        public void printToTableVisible()
+        {
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    Console.Write("    " + matV[i, j]);
+                }
+                Console.WriteLine(); Console.WriteLine();
+            }
+        }
+        public void printToTablePositions()
+        {
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    Console.Write("    " + matO[i, j]);
+                }
+                Console.WriteLine(); Console.WriteLine();
+            }
+        }
+        /*public  void printToTableVisible(string[,] mat)
         {
             int c = 0, d = 0, s = 0, b = 0, a = 0;
             for (int i = 0; i < Size; i++)
@@ -61,7 +79,7 @@ namespace Battleship
             Console.WriteLine($"S:{s}");
             Console.WriteLine($"B:{b}");
             Console.WriteLine($"A:{a}");
-        }
+        }*/
         public  bool validationUp(int row, int column, int n)
         {
             bool flag = true;
@@ -99,11 +117,6 @@ namespace Battleship
         }
         public List<string> directionInsertOptions(int row, int column, int cells) {
             List<string> direction = new List<string>();
-            /*if (cells <= 1)
-            {
-                if (matO[row, column] !="0")
-                    direction.Add("center");
-            }*/
             if (row - cells  >= 0)
             {
                 if (validationUp(row, column, cells))
@@ -129,9 +142,6 @@ namespace Battleship
         {
             switch (direction)
             {
-                /*case "center":
-                    matO[row, column] = boat[0].ToString();
-                    break;*/
                 case "up":
                     for (int i = 0; i < n; i++) matO[row--, column] = boat[0].ToString();
                     break;
@@ -148,26 +158,45 @@ namespace Battleship
                     break;
             }
         }
-        public void InsertBoatsToBoard(Boats boats)
+        public void InsertBoatsToBoardRandom()
         {
             Random ramdom = new Random();
             int i = 0;
             
-            while(i< boats.boatsTuple.Count())
+            while(i< boats.boatsName.Count())
             {
                 int row = ramdom.Next(Size);
                 int column =ramdom.Next(Size);
-                var boat = boats.boatsTuple[i];
+                var boatName = boats.boatsName[i];
+                var boatCells = boats.boatsCount[i];
 
-                var directions = directionInsertOptions(row, column, boat.Item2);
+                var directions = directionInsertOptions(row, column, boatCells);
                 if (directions.Count!=0){
                     var azar = ramdom.Next(directions.Count());
                     var directionAzar = directions[azar];
-                    insertBoat(directionAzar, row, column, boat.Item1, boat.Item2);
+                    insertBoat(directionAzar, row, column, boatName, boatCells);
                     i++;
                 }
             }
         }
-      
+        public void shotbyCoordinates(int row,int column)
+        {
+            if (matO[row,column] == "0"){
+                Console.WriteLine("Water Shot");
+            }
+            else{
+                char initialBoat = matO[row, column][0];
+                boats.accurateShot(initialBoat);
+                if (boats.boatSank(initialBoat)){
+                    Console.WriteLine("Sunk");
+                }
+                else{
+                    Console.WriteLine("Accurate shot");
+                }
+                matV[row,column] = "X";
+                matO[row,column] = "0";
+            }
+        }
+
     }
 }

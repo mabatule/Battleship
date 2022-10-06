@@ -9,18 +9,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            
-            for (int i = 0; i < 10000; i++)
-            {
-                Boats Boats = new Boats();
-                Board board = new Board(10, Boats);
-                Console.WriteLine("*****************************");
-                board.InsertBoatsToBoard(Boats);
-                board.printToTableVisible(board.matO);
-
-            }
-            Console.WriteLine("*****************************");
-            //board.PrintToTableVisible(board.matV);
+                string firstName, secondName;
+                Console.WriteLine("Enter your name player 1");
+                firstName = Console.ReadLine();
+                Console.WriteLine("Enter your name player 2");
+                secondName = Console.ReadLine();
+                GameBattleship game = new GameBattleship(firstName, secondName,10);
+                game.startGame();
         }
     }
 }

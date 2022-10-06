@@ -8,18 +8,27 @@ namespace Battleship
 {
     public class Player
     {
-        private string Name { get; set; }
-        private Boats Boats { get; set; }
-        private Board Board{ get; set; }
+        public string Name { get; set; }
+        public Board Board{ get; set; }
 
-        public Player(string name)
+        public Player(string name,int SizeBoard)
         {
             Name = name;
-            Boats = new Boats();
-            
-            Board = new Board(10, Boats);
-
-            
+            Board = new Board(SizeBoard);
+            Board.InsertBoatsToBoardRandom();
+        }
+        public void PrintMyBoard()
+        {
+            Board.printToTablePositions();
+        }
+        public bool IsLoser()
+        {
+            return Board.boats.CountIsEmpty();
+        }
+        public void Myturn(string row,int column,Board board)
+        {
+            int newRow = Convert.ToInt32(row[0]) - Convert.ToInt32('A');
+            board.shotbyCoordinates(newRow, column-1);
         }
     }
 }

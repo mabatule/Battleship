@@ -8,15 +8,28 @@ namespace Battleship
 {
     public class Boats
     {
-        public List<Tuple<string,int>> boatsTuple { get; set; }
+        public List<string> boatsName { get; set; }
+        public List<int> boatsCount { get; set; }
         public Boats()
         {
-            boatsTuple = new List<Tuple<string, int>>();
-            boatsTuple.Add(new Tuple<string, int>("Cruiser"   , 1));
-            boatsTuple.Add(new Tuple<string, int>("Destroyer" , 2));
-            boatsTuple.Add(new Tuple<string, int>("Submarine" , 3));
-            boatsTuple.Add(new Tuple<string, int>("Battleship", 4));
-            boatsTuple.Add(new Tuple<string, int>("Aircraft"  , 5));
+            boatsName = new List<string>() { "Cruiser", "Destroyer", "Submarine", "Battleship", "Aircraft" };
+            boatsCount = new List<int>() { 3,2,3,4,5};
+        }
+        public void accurateShot(char initial)
+        {
+            for (int i = 0; i < boatsName.Count(); i++){
+                if (boatsName[i][0] == initial) boatsCount[i]--;
+            }
+        }
+        public bool boatSank(char initial)
+        {
+            for (int i = 0; i < boatsName.Count(); i++){
+                if (boatsName[i][0] == initial) return boatsCount[i]==0;
+            }
+            return false;
+        }
+        public bool CountIsEmpty(){ 
+            return boatsCount.Sum()==0;
         }
     }
 }
