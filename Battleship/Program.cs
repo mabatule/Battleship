@@ -9,14 +9,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Boats Boats = new Boats();
-            Board board = new Board(10, Boats);
-            var aux=board.directionOptions(4,3,5);
-            foreach (var item in aux)
-            {
-                Console.WriteLine(item);
-            }
             
+            for (int i = 0; i < 10000; i++)
+            {
+                Boats Boats = new Boats();
+                Board board = new Board(10, Boats);
+                Console.WriteLine("*****************************");
+                board.InsertBoatsToBoard(Boats);
+                board.printToTableVisible(board.matO);
+
+            }
             Console.WriteLine("*****************************");
             //board.PrintToTableVisible(board.matV);
         }
