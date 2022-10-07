@@ -6,10 +6,14 @@ The gameplay is straightforward. Each player hides ships on a plastic grid conta
 
 Each player receives a game board and five **boats** of different lengths. Each boat has squares where a hit can be made. The five boats are:
 
- Carrier, which has five squares.
- Battleship, which has four squares.
- Cruiser, which has one box.
- Submarine, which has three boxes.
- Destroyer, which has two boxes.
-
-#IMPORTANT! HOW TO USE🔧
+|Type of Boats   | Boxes occupied                |
+|----------------|-------------------------------|
+|Carrier         |			Five        		 |
+|Battleship      |			Four      			 |
+|Cruiser         |			Three				 |
+|Submarine		 |			Three				 |
+|Destroyer		 |			Two					 |
+## Description of the problem
+Basically make the game Battleship with their respective programming skills.
+## Solution description
+It was proposed to do it with the C# programming language based on OOP.
