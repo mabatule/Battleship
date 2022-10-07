@@ -19,7 +19,7 @@ namespace Battleship
         }
         public void PrintMyBoard()
         {
-            Board.printToTablePositions();
+            Board.printToTableVisible();
         }
         public bool IsLoser()
         {

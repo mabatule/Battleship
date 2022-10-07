@@ -36,50 +36,44 @@ namespace Battleship
         }
         public void printToTableVisible()
         {
+            char rows = 'A';
+            //print a row for the column reference [1-10]
+            Console.Write("      ");
+            for (int i = 1; i <= Size; i++){Console.Write($"[{i}]  ");}
+            Console.WriteLine();
+            //prints the table with their respective reference columns [A-J]
             for (int i = 0; i < Size; i++)
             {
+
+                Console.Write($"[{rows}]");
                 for (int j = 0; j < Size; j++)
                 {
+
                     Console.Write("    " + matV[i, j]);
                 }
+                rows++;
                 Console.WriteLine(); Console.WriteLine();
             }
         }
         public void printToTablePositions()
         {
+            char rows = 'A';
+            //print a row for the column reference [1-10]
+            Console.Write("      ");
+            for (int i = 1; i <= Size; i++) { Console.Write($"[{i}]  "); }
+            Console.WriteLine();
+            //prints the table with their respective reference columns [A-J]
             for (int i = 0; i < Size; i++)
             {
+                Console.Write($"[{rows}]");
                 for (int j = 0; j < Size; j++)
                 {
                     Console.Write("    " + matO[i, j]);
                 }
+                rows++;
                 Console.WriteLine(); Console.WriteLine();
             }
         }
-        /*public  void printToTableVisible(string[,] mat)
-        {
-            int c = 0, d = 0, s = 0, b = 0, a = 0;
-            for (int i = 0; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    if(mat[i, j] == "A") a++;
-                    if(mat[i, j] == "B") b++;
-                    if(mat[i, j] == "C") c++;
-                    if(mat[i, j] == "D") d++;
-                    if(mat[i, j] == "S") s++;
-                    Console.Write("    " + mat[i,j]);
-                }
-
-                Console.WriteLine(); Console.WriteLine();
-            }
-            Console.WriteLine("Results:");
-            Console.WriteLine($"C:{c}");
-            Console.WriteLine($"D:{d}");
-            Console.WriteLine($"S:{s}");
-            Console.WriteLine($"B:{b}");
-            Console.WriteLine($"A:{a}");
-        }*/
         public  bool validationUp(int row, int column, int n)
         {
             bool flag = true;
@@ -187,14 +181,16 @@ namespace Battleship
             else{
                 char initialBoat = matO[row, column][0];
                 boats.accurateShot(initialBoat);
+                matV[row, column] = "X";
+                matO[row, column] = "0";
+                Console.Clear();
+                printToTableVisible();
                 if (boats.boatSank(initialBoat)){
                     Console.WriteLine("Sunk");
                 }
                 else{
                     Console.WriteLine("Accurate shot");
                 }
-                matV[row,column] = "X";
-                matO[row,column] = "0";
             }
         }
 
