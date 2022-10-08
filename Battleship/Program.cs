@@ -9,12 +9,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-                string firstName, secondName;
-                Console.WriteLine("Enter your name player 1");
-                firstName = Console.ReadLine();
-                Console.WriteLine("Enter your name player 2");
-                secondName = Console.ReadLine();
-                GameBattleship game = new GameBattleship(firstName, secondName,10);
+                GameBattleship game = new GameBattleship(10);
                 game.startGame();
         }
     }

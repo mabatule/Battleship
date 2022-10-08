@@ -17,11 +17,9 @@ namespace Battleship
             boats = new Boats();
             this.Size = Size;
             matV = new string[Size, Size];
-            //string formatEmpty = Convert.ToChar(166).ToString();
             initializeMat(matV, "▬");
             matO = new string[Size, Size];
             initializeMat(matO, "0");
-
         }
 
         public void initializeMat(string[,] mat,string car)
@@ -181,7 +179,7 @@ namespace Battleship
             else{
                 char initialBoat = matO[row, column][0];
                 boats.accurateShot(initialBoat);
-                matV[row, column] = "X";
+                matV[row, column] = matO[row, column];
                 matO[row, column] = "0";
                 Console.Clear();
                 printToTableVisible();

@@ -12,11 +12,8 @@ namespace Battleship
         public List<int> boatsCount { get; set; }
         public Boats()
         {
-            //boatsName = new List<string>() { "Cruiser", "Destroyer", "Submarine", "Battleship", "Aircraft" };
-            //boatsCount = new List<int>() { 3,2,3,4,5};
-
             boatsName = new List<string>() { "Cruiser"};
-            boatsCount = new List<int>() {2};
+            boatsCount = new List<int>() { 1};
         }
         public void accurateShot(char initial)
         {

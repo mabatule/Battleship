@@ -30,5 +30,32 @@ namespace Battleship
             int newRow = Convert.ToInt32(row[0]) - Convert.ToInt32('A');
             board.shotbyCoordinates(newRow, column-1);
         }
+        public Tuple<string, int> readParams()
+        {
+            char row;
+            int column;
+            bool flag = false;
+            do
+            {
+                Console.WriteLine("Insert row digit [A-J]:");
+                var readRow = Console.ReadLine()?? "";
+                row = readRow == "" ? 'X' : readRow.ToUpper()[0] ;
+                
+                Console.WriteLine("Insert column digit [1-10]:");
+                var readColumn = Console.ReadLine() ?? "";
+                column = Convert.ToInt32(readColumn==""?0:readColumn);
+
+                if ((row >= 'A' && row <= 'J') && (column >= 1 && column <= 10)){
+                    flag = true;
+                }
+                else{
+                    Console.Clear();
+                    PrintMyBoard();
+                    Console.WriteLine("************ Insert the parameters correctly Row [A-J] and Column [1-10] ************");
+                }
+            } while (!flag);
+
+            return new Tuple<string, int>(row.ToString(), column);
+        }
     }
 }
