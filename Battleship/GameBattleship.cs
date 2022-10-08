@@ -15,6 +15,7 @@ namespace Battleship
         {
             players = new List<Player>();   
             string firstName, secondName;
+            
             Console.WriteLine("Enter your name player 1");
             firstName = Console.ReadLine();
             players.Add(new Player(firstName, SizeBoard));
@@ -38,13 +39,20 @@ namespace Battleship
         public void InformationBoats()
         {
             Console.WriteLine("Five types of boats are available:");
-            Console.WriteLine("1 .- Carrier with 5 boxes");
-            Console.WriteLine("2 .- Battleship with 4 boxes");
-            Console.WriteLine("3 .- Cruiser with 3 boxes");
-            Console.WriteLine("4 .- Submarine with 3 boxes");
-            Console.WriteLine("5 .- Destroyer with 2 boxes");
+            Console.WriteLine("[A] Aircraft with 5 boxes  [B] Battleship with 4 boxes  [C] Cruiser with 3 boxes");
+            Console.WriteLine("[S] Submarine with 3 boxes [D] Destroyer with 2 boxes");
+            Console.WriteLine("*******************************");
         }
-       
+        public void PrintToWin(int win,int loser)
+        {
+            Console.WriteLine("****************************************");
+            Console.WriteLine("\n");
+            Console.WriteLine($"Congratulations {players[win].Name} won ! \n");
+            Console.WriteLine("****************************************");
+            Console.WriteLine($"Table of {players[loser].Name} with his defeated boats");
+            players[loser].PrintMyBoard();
+            InformationBoats();
+        }
         public void startGame()
         {
 
@@ -60,6 +68,7 @@ namespace Battleship
 
                 Console.WriteLine($"Player {players[firstPlayer].Name} turn:");
                 players[SecondPlayer].PrintMyBoard();
+                InformationBoats();
                 var dataFirst = players[SecondPlayer].readParams();
 
                 players[firstPlayer].Myturn(dataFirst.Item1, dataFirst.Item2, players[SecondPlayer].Board);
@@ -71,37 +80,15 @@ namespace Battleship
 
                 firstPlayer  = firstPlayer  == 1 ? 0:1;
                 SecondPlayer = SecondPlayer == 0 ? 1:0;
-                /*Console.WriteLine($"Player {FirtsPlayer.Name} turn:");
-                SecondPlayer.PrintMyBoard();
-                var dataFirst = readParams();
-
-                FirtsPlayer.Myturn(dataFirst.Item1, dataFirst.Item2, SecondPlayer.Board);
-                endGame = SecondPlayer.IsLoser();
-
-                System.Threading.Thread.Sleep(4000);
-                Console.Clear();*/
-
-                /*if (!endGame){
-                    Console.WriteLine($"Player {SecondPlayer.Name} turn:");
-                    FirtsPlayer.PrintMyBoard();
-                    var dataSecond = readParams();
-
-                    SecondPlayer.Myturn(dataSecond.Item1, dataSecond.Item2, FirtsPlayer.Board);
-                    endGame = FirtsPlayer.IsLoser();
-                    
-                    System.Threading.Thread.Sleep(4000);
-                    Console.Clear();
-                }*/
-
             } while (!endGame);
             
             if (players[0].IsLoser()) {
-                Console.WriteLine($"Congratulations {players[1].Name} won");
+                PrintToWin(1,0);
             }
             else{
-                Console.WriteLine($"Congratulations {players[0].Name} won");
+                PrintToWin(0, 1);
             }
-            Console.WriteLine("\n\n\n\n\n\n\n");
+            Console.WriteLine("*****************************************************************");
         }
     }
 }

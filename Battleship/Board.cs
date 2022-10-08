@@ -50,7 +50,7 @@ namespace Battleship
                     Console.Write("    " + matV[i, j]);
                 }
                 rows++;
-                Console.WriteLine(); Console.WriteLine();
+                Console.WriteLine(); 
             }
         }
         public void printToTablePositions()
@@ -69,7 +69,7 @@ namespace Battleship
                     Console.Write("    " + matO[i, j]);
                 }
                 rows++;
-                Console.WriteLine(); Console.WriteLine();
+                Console.WriteLine();
             }
         }
         public  bool validationUp(int row, int column, int n)
