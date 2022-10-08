@@ -17,3 +17,40 @@ Each player receives a game board and five **boats** of different lengths. Each 
 Basically make the game Battleship with their respective programming skills.
 ## Solution description
 It was proposed to do it with the C# programming language based on OOP.
+## How to play 
+
+**Step 1:** Enter your name to become player 1 
+
+![Step 1](/images/Step_1.png)
+
+**Step 2:** Enter the name of the second player
+
+![Step 2](/images/Step_2.png)
+
+**Step 3:** You will get a welcome message and wait a few seconds to start.
+
+![Step 3](/images/Step_3.png)
+
+**Step 4:** You will see a matrix in which you must enter the rows (A - J) and columns (1 - 10), now play !
+
+![Step 4](/images/Step_4.png)
+
+### Scenarios
+**Water Shot**: This happens when you couldn't hit any ship.
+
+![Water Shot](/images/Water%20Shot.png)
+
+**Accurate shot**: When you hit a ship but have not yet sunk it.
+
+![Accurate shot](/images/Accurate%20shot.png)
+
+**Sunk**: This happens when you have already finished with the squares of a ship.
+
+![Sunk](/images/SUNK.png)
+
+**Winner** The last step is when you have sunk all the opponent's ships, in this example we only insert one ship for better understanding.
+
+![Winner](/images/Winner.png)
+
+## Bibliography
+* https://www.thesprucecrafts.com/the-basic-rules-of-battleship-411069

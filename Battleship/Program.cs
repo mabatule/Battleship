@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Battleship;
+using System;
+using System.Drawing;
+using System.Linq;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -6,7 +9,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GameBattleship game = new GameBattleship(10);
+                game.startGame();
         }
     }
 }
